@@ -65,44 +65,80 @@
     .wrap { width: min(var(--max), calc(100% - 2.5rem)); margin-inline: auto; }
     header.site {
       display: flex; align-items: baseline; justify-content: space-between;
-      gap: 1.5rem; padding: 1.4rem 0 1.2rem; border-bottom: 1px solid var(--rule);
+      gap: 1.25rem 1.6rem; padding: 1.35rem 0 1.15rem; border-bottom: 1px solid var(--rule);
     }
     .wordmark {
       font-family: Palatino, "Palatino Linotype", "Iowan Old Style", "Times New Roman", serif;
-      font-size: 1.15rem; font-weight: 600; letter-spacing: 0.16em;
+      font-size: 1.1rem; font-weight: 600; letter-spacing: 0.16em;
       text-transform: uppercase; text-decoration: none; color: var(--ink);
+      flex: 0 0 auto;
     }
     .wordmark span { color: var(--pine); letter-spacing: 0.16em; }
     nav ul {
-      display: flex; flex-wrap: wrap; gap: 0.2rem 1.15rem;
-      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-wrap: wrap; gap: 0.25rem 1rem;
+      list-style: none; margin: 0; padding: 0; justify-content: flex-end;
     }
-    nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
     nav a:hover { color: var(--ink); text-decoration: underline; }
     nav a[aria-current="page"] { color: var(--ink); }
-    .hero { padding: 4.4rem 0 3.4rem; border-bottom: 1px solid var(--rule); }
+    .hero { padding: 4.2rem 0 3.2rem; border-bottom: 1px solid var(--rule); }
     .eyebrow {
       margin: 0 0 0.85rem; color: var(--brass); font-size: 0.78rem;
       font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
     }
-    h1, h2 {
+    h1, h2, h3 {
       font-family: Palatino, "Palatino Linotype", "Iowan Old Style", "Times New Roman", serif;
       font-weight: 600; letter-spacing: -0.02em; line-height: 1.15;
     }
-    h1 { margin: 0 0 1rem; font-size: clamp(2.6rem, 7vw, 4.4rem); }
-    .lede { margin: 0; max-width: 34rem; font-size: 1.25rem; color: var(--muted); }
-    section { padding: 2.6rem 0; }
-    .contact { color: var(--muted); margin: 0; }
-    .page { padding: 3.4rem 0 2.6rem; }
-    .page h1 { margin-bottom: 1.1rem; font-size: clamp(2rem, 4.5vw, 3rem); }
+    h1 { margin: 0 0 1rem; font-size: clamp(2.5rem, 6.5vw, 4.2rem); }
+    h2 { margin: 0 0 1.15rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+    h3 { margin: 0 0 0.45rem; font-size: 1.2rem; }
+    .lede { margin: 0; max-width: 40rem; font-size: 1.22rem; color: var(--muted); line-height: 1.55; }
+    section { padding: 2.8rem 0; }
+    section.band { border-top: 1px solid var(--rule); }
+    .page { padding: 3.2rem 0 2.8rem; }
+    .page h1 { margin-bottom: 1.15rem; font-size: clamp(2rem, 4.5vw, 3rem); }
     .prose { max-width: 42rem; }
     .prose p { margin: 0 0 1rem; }
     .prose p:last-child { margin-bottom: 0; }
-    footer.site { padding: 1.6rem 0 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.92rem; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    article.card, .service {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 1.2rem 1.25rem 1.25rem;
+    }
+    article.card p, .service p { margin: 0; color: var(--muted); }
+    article.card a.card-link {
+      text-decoration: none; color: inherit; display: block;
+    }
+    article.card a.card-link:hover h3 { color: var(--pine); }
+    .service + .service { margin-top: 0; }
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      max-width: 46rem;
+    }
+    .more { margin: 1.4rem 0 0; }
+    .contact { color: var(--muted); margin: 0; font-size: 1.15rem; }
+    footer.site {
+      padding: 1.5rem 0 2.8rem; border-top: 1px solid var(--rule);
+      color: var(--muted); font-size: 0.92rem;
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem;
+      justify-content: space-between; align-items: baseline;
+    }
     footer.site p { margin: 0; }
+    footer.site a { color: var(--muted); }
+    footer.site a:hover { color: var(--ink); }
     @media (max-width: 860px) {
       header.site { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-      .hero { padding-top: 2.8rem; }
+      nav ul { justify-content: flex-start; }
+      .hero { padding-top: 2.6rem; }
+      .cards { grid-template-columns: 1fr; }
     }
 </style>
 </head>
@@ -114,28 +150,30 @@
       <nav aria-label="Primary">
         <ul>
           <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
           <li><a href="/reports/">Reports</a></li>
           <li><a href="/research/">Research</a></li>
-          <li><a href="/privacy.html" aria-current="page">Privacy</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main id="content">
-      <section class="page privacy" aria-labelledby="privacy-title">
+      <section class="page" aria-labelledby="page-title">
         <p class="eyebrow">Privacy notice</p>
-        <h1 id="privacy-title">Privacy</h1>
+        <h1 id="page-title">Privacy</h1>
         <div class="prose">
-          <p>This website, <a href="https://biotechvision.co.uk/">https://biotechvision.co.uk/</a>, is a static site for BiotechVision, a metabolomics and data consultancy. It does not use analytics, advertising cookies, or other third-party trackers, and it does not collect personal data through forms.</p>
-          <p>A contact address will be published on the site when one is available. Any message sent to that address will be handled as ordinary email.</p>
-          <p>The same website address is also used as the homepage and privacy-policy URL for a personal Google OAuth application named “Pi backup”. That application is used only by the site owner to back up a personal Raspberry Pi to the owner’s own Google Drive. It requests the Google Drive <code>drive.file</code> scope, which is limited to files the application itself creates. It is not offered to the public, does not collect data from third parties, and is not a consumer product.</p>
+          <p>This website, <a href="https://biotechvision.co.uk/">https://biotechvision.co.uk/</a>, is a static site for BiotechVision. It does not use analytics, advertising cookies or other third-party trackers, and it does not collect personal data through forms. Enquiries can be sent to <a href="mailto:r.salek@biotechvision.co.uk">r.salek@biotechvision.co.uk</a>. Messages to that address are handled as ordinary email.</p>
+          <h2 style="margin:1.6rem 0 0.7rem; font-size:1.35rem;">Google data</h2>
+          <p>The same website address is used as the homepage and privacy-policy URL for a personal Google OAuth application named “Pi backup”. That application uses Google Drive with the <code>drive.file</code> scope only, and only for the owner’s own backup files. It does not share or sell data, and nothing is used for advertising. It is not offered to the public and is not a consumer product.</p>
           <p>Google may show this page when the owner is asked to grant that application access to Google Drive. No other Google APIs are described here, and no visitor accounts are created on this website.</p>
-          <p><a href="/">Back to the homepage</a></p>
         </div>
       </section>
 
     </main>
     <footer class="site">
       <p>© 2026 BiotechVision.</p>
+      <p><a href="mailto:r.salek@biotechvision.co.uk">r.salek@biotechvision.co.uk</a> · <a href="/privacy.html">Privacy</a></p>
     </footer>
   </div>
 </body>
