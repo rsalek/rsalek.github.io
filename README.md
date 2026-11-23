@@ -1,1 +1,1 @@
-This repository serves a redirect from biotechvision.co.uk to https://rsalek.github.io/reports/.
+GitHub Pages user site for biotechvision.co.uk, with project sites served under /reports/, /research/ and other repository paths.
