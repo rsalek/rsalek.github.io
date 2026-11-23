@@ -8,7 +8,12 @@
   <meta name="theme-color" content="#f6f1e8">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://biotechvision.co.uk/contact.html">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c4a3c'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='16' fill='%23f6f1e8'%3EB%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="/assets/brand/biotechvision-icon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/assets/brand/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="shortcut icon" href="/assets/brand/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon-180.png" sizes="180x180">
+  <link rel="manifest" href="/assets/brand/site.webmanifest">
   <style>
     :root {
       --paper: #f6f1e8;
@@ -64,16 +69,21 @@
     .skip:focus { top: 1rem; }
     .wrap { width: min(var(--max), calc(100% - 2.5rem)); margin-inline: auto; }
     header.site {
-      display: flex; align-items: baseline; justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       gap: 1.25rem 1.6rem; padding: 1.35rem 0 1.15rem; border-bottom: 1px solid var(--rule);
     }
     .wordmark {
-      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", "Times New Roman", serif;
-      font-size: 1.1rem; font-weight: 600; letter-spacing: 0.16em;
-      text-transform: uppercase; text-decoration: none; color: var(--ink);
+      display: inline-flex;
+      align-items: center;
       flex: 0 0 auto;
+      line-height: 0;
+      text-decoration: none;
     }
-    .wordmark span { color: var(--pine); letter-spacing: 0.16em; }
+    .wordmark img {
+      display: block;
+      height: 28px;
+      width: auto;
+    }
     nav ul {
       display: flex; flex-wrap: wrap; gap: 0.25rem 1rem;
       list-style: none; margin: 0; padding: 0; justify-content: flex-end;
@@ -146,7 +156,12 @@
   <a class="skip" href="#content">Skip to content</a>
   <div class="wrap">
     <header class="site">
-      <a class="wordmark" href="/">Biotech<span>Vision</span></a>
+      <a class="wordmark" href="/">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="/assets/brand/biotechvision-logo-dark.svg">
+          <img src="/assets/brand/biotechvision-wordmark.svg" alt="BiotechVision" height="28">
+        </picture>
+      </a>
       <nav aria-label="Primary">
         <ul>
           <li><a href="/">Home</a></li>
