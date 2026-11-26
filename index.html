@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BiotechVision — independent advice on life science tools and analytical technologies</title>
   <meta name="description" content="Independent technical and commercial advice on life science tools and analytical technologies.">
-  <meta name="theme-color" content="#f6f1e8">
+  <meta name="theme-color" content="#fcfbfa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#2d2231" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://biotechvision.co.uk/">
   <link rel="icon" href="/assets/brand/biotechvision-icon.svg" type="image/svg+xml">
@@ -14,219 +15,111 @@
   <link rel="shortcut icon" href="/assets/brand/favicon.ico">
   <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon-180.png" sizes="180x180">
   <link rel="manifest" href="/assets/brand/site.webmanifest">
-  <style>
-    :root {
-      --paper: #f6f1e8;
-      --ink: #1a1814;
-      --muted: #5b564c;
-      --rule: #d8d0c2;
-      --pine: #1c4a3c;
-      --pine-ink: #16382e;
-      --brass: #9a7040;
-      --card: rgba(255, 252, 247, 0.9);
-      --focus: #1c4a3c;
-      --max: 68rem;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --paper: #161410;
-        --ink: #f3eee4;
-        --muted: #b4ad9f;
-        --rule: #3a352c;
-        --pine: #8fbfad;
-        --pine-ink: #c5e0d5;
-        --brass: #d4b07a;
-        --card: #221e18;
-        --focus: #8fbfad;
-      }
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { animation: none !important; transition: none !important; }
-    }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(1200px 500px at 10% -10%, rgba(28, 74, 60, 0.06), transparent 50%),
-        var(--paper);
-      color: var(--ink);
-      font-family: "Avenir Next", "Segoe UI", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 1.0625rem;
-      line-height: 1.65;
-      letter-spacing: 0.01em;
-    }
-    a { color: var(--pine); text-underline-offset: 0.18em; }
-    a:hover { color: var(--pine-ink); }
-    a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
-    code { font-size: 0.92em; white-space: nowrap; }
-    .skip {
-      position: absolute; left: 1rem; top: -3rem;
-      background: var(--ink); color: var(--paper);
-      padding: 0.4rem 0.7rem; z-index: 10;
-    }
-    .skip:focus { top: 1rem; }
-    .wrap { width: min(var(--max), calc(100% - 2.5rem)); margin-inline: auto; }
-    header.site {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1.25rem 1.6rem; padding: 1.35rem 0 1.15rem; border-bottom: 1px solid var(--rule);
-    }
-    .wordmark {
-      display: inline-flex;
-      align-items: center;
-      flex: 0 0 auto;
-      line-height: 0;
-      text-decoration: none;
-    }
-    .wordmark img {
-      display: block;
-      height: 28px;
-      width: auto;
-    }
-    nav ul {
-      display: flex; flex-wrap: wrap; gap: 0.25rem 1rem;
-      list-style: none; margin: 0; padding: 0; justify-content: flex-end;
-    }
-    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
-    nav a:hover { color: var(--ink); text-decoration: underline; }
-    nav a[aria-current="page"] { color: var(--ink); }
-    .hero { padding: 4.2rem 0 3.2rem; border-bottom: 1px solid var(--rule); }
-    .eyebrow {
-      margin: 0 0 0.85rem; color: var(--brass); font-size: 0.78rem;
-      font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
-    }
-    h1, h2, h3 {
-      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", "Times New Roman", serif;
-      font-weight: 600; letter-spacing: -0.02em; line-height: 1.15;
-    }
-    h1 { margin: 0 0 1rem; font-size: clamp(2.5rem, 6.5vw, 4.2rem); }
-    h2 { margin: 0 0 1.15rem; font-size: clamp(1.5rem, 3vw, 2rem); }
-    h3 { margin: 0 0 0.45rem; font-size: 1.2rem; }
-    .lede { margin: 0; max-width: 40rem; font-size: 1.22rem; color: var(--muted); line-height: 1.55; }
-    section { padding: 2.8rem 0; }
-    section.band { border-top: 1px solid var(--rule); }
-    .page { padding: 3.2rem 0 2.8rem; }
-    .page h1 { margin-bottom: 1.15rem; font-size: clamp(2rem, 4.5vw, 3rem); }
-    .prose { max-width: 42rem; }
-    .prose p { margin: 0 0 1rem; }
-    .prose p:last-child { margin-bottom: 0; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-    article.card, .service {
-      background: var(--card);
-      border: 1px solid var(--rule);
-      padding: 1.2rem 1.25rem 1.25rem;
-    }
-    article.card p, .service p { margin: 0; color: var(--muted); }
-    article.card a.card-link {
-      text-decoration: none; color: inherit; display: block;
-    }
-    article.card a.card-link:hover h3 { color: var(--pine); }
-    .service + .service { margin-top: 0; }
-    .services-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.9rem;
-      max-width: 46rem;
-    }
-    .more { margin: 1.4rem 0 0; }
-    .contact { color: var(--muted); margin: 0; font-size: 1.15rem; }
-    footer.site {
-      padding: 1.5rem 0 2.8rem; border-top: 1px solid var(--rule);
-      color: var(--muted); font-size: 0.92rem;
-      display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem;
-      justify-content: space-between; align-items: baseline;
-    }
-    footer.site p { margin: 0; }
-    footer.site a { color: var(--muted); }
-    footer.site a:hover { color: var(--ink); }
-    @media (max-width: 860px) {
-      header.site { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-      nav ul { justify-content: flex-start; }
-      .hero { padding-top: 2.6rem; }
-      .cards { grid-template-columns: 1fr; }
-    }
-</style>
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
-  <div class="wrap">
-    <header class="site">
-      <a class="wordmark" href="/">
-        <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="/assets/brand/biotechvision-logo-dark.svg">
-          <img src="/assets/brand/biotechvision-wordmark.svg" alt="BiotechVision" height="28">
-        </picture>
-      </a>
+  <header class="site-header">
+    <div class="frame">
+      <a class="wordmark" href="/">Biotech<span>Vision</span></a>
       <nav aria-label="Primary">
-        <ul>
-          <li><a href="/" aria-current="page">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/reports/">Reports</a></li>
-          <li><a href="/research/">Research</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
+        <a href="/" aria-current="page">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/reports/">Reports</a>
+        <a href="/research/">Research</a>
+        <a href="/contact.html" class="contact-link">Contact</a>
       </nav>
-    </header>
-    <main id="content">
-      <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow">Consultancy</p>
-        <h1 id="page-title">BiotechVision</h1>
-        <p class="lede">Independent technical and commercial advice on life science tools and analytical technologies.</p>
-      </section>
-      <section class="band" aria-labelledby="services-teaser-title">
-        <h2 id="services-teaser-title">Services</h2>
-        <div class="cards">
-          <article class="card">
-            <a class="card-link" href="/services.html#market-and-competitive-assessment">
+    </div>
+  </header>
+  <main id="content" tabindex="-1">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <h1 id="page-title">Independent advice on life science tools</h1>
+        <p>Technical and commercial advice for investment, strategy and product teams working with analytical technologies.</p>
+        <div class="actions">
+          <a class="button" href="/services.html">Explore services <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="/contact.html">Contact us</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="/assets/instrumentation.webp" alt="" fetchpriority="high" width="1536" height="1024">
+      </div>
+    </section>
+    <section class="section frame" aria-labelledby="services-title">
+      <div class="section-heading">
+        <h2 id="services-title">Consulting services</h2>
+        <a class="text-link" href="/about.html">About BiotechVision <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="service-grid">
+          <article class="service-tile">
+            <a href="/services.html#market-and-competitive-assessment">
               <h3>Market and competitive assessment</h3>
               <p>Market structure, growth drivers, customer adoption and supplier positioning.</p>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </article>
-          <article class="card">
-            <a class="card-link" href="/services.html#technical-and-investment-due-diligence">
+          <article class="service-tile">
+            <a href="/services.html#technical-and-investment-due-diligence">
               <h3>Technical and investment due diligence</h3>
               <p>Platform capabilities, application fit, technology adoption and the economics of instruments, consumables and services.</p>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </article>
-          <article class="card">
-            <a class="card-link" href="/services.html#product-and-workflow-advice">
+          <article class="service-tile">
+            <a href="/services.html#product-and-workflow-advice">
               <h3>Product and workflow advice</h3>
               <p>Instrument and software selection, laboratory workflows, automation and product positioning.</p>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </article>
-          <article class="card">
-            <a class="card-link" href="/services.html#omics-study-and-data-advisory">
+          <article class="service-tile">
+            <a href="/services.html#omics-study-and-data-advisory">
               <h3>Omics study and data advisory</h3>
               <p>Study design, targeted and untargeted methods, data processing, quality assessment and interpretation.</p>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </article>
-          <article class="card">
-            <a class="card-link" href="/services.html#regulatory-and-quality-advisory">
+          <article class="service-tile">
+            <a href="/services.html#regulatory-and-quality-advisory">
               <h3>Regulatory and quality advisory</h3>
               <p>Support with evidence planning, documentation and quality processes for research and software-based medical devices.</p>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </article>
-          <article class="card">
-            <a class="card-link" href="/services.html#expert-consultations-written-briefs-and-workshops">
+          <article class="service-tile">
+            <a href="/services.html#expert-consultations-written-briefs-and-workshops">
               <h3>Expert consultations, written briefs and workshops</h3>
               <p>Scope and format agreed for each engagement.</p>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </article>
+      </div>
+    </section>
+    <section class="publications section" aria-labelledby="publications-title">
+      <div class="frame">
+        <h2 id="publications-title">Reports and research</h2>
+        <div class="publication-links">
+          <a href="/reports/">
+            <div><strong>Reports library</strong><p>Company reports, KPI monitors and the stock knowledge wiki.</p></div>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="/research/">
+            <div><strong>Research library</strong><p>Standalone research articles and notes.</p></div>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
         </div>
-        <p class="more"><a href="/services.html">All services</a></p>
-      </section>
-
-    </main>
-    <footer class="site">
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="frame">
       <p>© 2026 BiotechVision.</p>
-      <p><a href="mailto:r.salek@biotechvision.co.uk">r.salek@biotechvision.co.uk</a> · <a href="/privacy.html">Privacy</a></p>
-    </footer>
-  </div>
+      <div class="footer-links">
+        <a href="mailto:r.salek@biotechvision.co.uk">r.salek@biotechvision.co.uk</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
